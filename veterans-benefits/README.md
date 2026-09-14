@@ -51,11 +51,16 @@ rosters.
 | `LEGAL_FIRST_NAME` | Legal name, from `SPRIDEN` |
 | `PREFERRED_NAME` | Preferred first name, from `SPBPERS` — use this for the greeting line in outreach emails when present |
 | `SFBETRM_AR_IND` | Raw Banner AR indicator for the current term |
-| `AR_STATUS` | Human-readable version: None / Accepted / Confirmed |
+| `AR_STATUS` | Readable form of `SFBETRM_AR_IND` — None / Accepted / Confirmed |
 | `CREDIT_HR_SUM` | Current-term credit hours |
 | `LAST_TERM` | Most recent term the student was VA-certified |
 | `LAST_BENEFIT` | Description of that certification's benefit chapter |
 | `FLAG` | Non-null only when the RCC match relied on a shared email address — verify manually before treating as "no response" |
+
+> **`AR_STATUS` reads backwards if you are new to Banner.** *Accepted* is the
+> permanent, good state; *Confirmed* is only a temporary hold. The labels match
+> what the Banner screens show, so they are kept as-is rather than renamed to
+> something more intuitive.
 
 ## Assumptions specific to this environment
 

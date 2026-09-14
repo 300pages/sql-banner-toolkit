@@ -95,7 +95,7 @@ SELECT DISTINCT SPRIDEN_ID AS STUDENT_ID,
     SPRIDEN_FIRST_NAME AS LEGAL_FIRST_NAME,
     SPBPERS_PREF_FIRST_NAME AS PREFERRED_NAME,
     SFBETRM_AR_IND,
---N = danger of drop, C = temp held, Y = officially confirmed
+--N = danger of drop, C = 'Confirmed', a manual temporary hold, Y = 'Accepted', system officially marked good to go
     DECODE(
         SFBETRM_AR_IND,
         'N', 'None',
