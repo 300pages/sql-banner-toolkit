@@ -21,12 +21,12 @@ detail before anything is committed.
 
 ## Things that will bite you here
 
-- **Do not write `CASE WHEN`.** Asked for twice, after real failures: "is there
-  a way to rely less on case when? i don't trust them." Use `DECODE`, a
-  presence-based CTE, or two filtered CTEs split on the condition — the existing
-  query does the last of those and says so inline. If a rewrite trades one
-  complexity for another or costs performance, name the tradeoff; do not comply
-  silently.
+- **Do not write `CASE WHEN`.** It has produced real bugs here more than once,
+  and avoiding it is a settled decision rather than a style preference. Use
+  `DECODE`, a presence-based CTE, or two filtered CTEs split on the condition —
+  the existing query does the last of those and says so inline. If a rewrite
+  trades one complexity for another or costs performance, name the tradeoff; do
+  not comply silently.
 - **`DECODE` substitutes only where it is genuinely equivalent** — one column,
   one condition, a flat mapping. Do not stretch it across multiple conditions to
   avoid `CASE`. That makes things worse, and saying so is the right answer.
